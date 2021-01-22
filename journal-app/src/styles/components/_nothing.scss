@@ -1,3 +1,17 @@
 .nothing__main-content{
+    align-items: center;
+    background-color: $primary;
     display: flex;
+    justify-content: center;
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+}
+
+.nothing__icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding-top: 20px;
 }
