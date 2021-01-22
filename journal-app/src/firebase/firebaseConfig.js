@@ -15,13 +15,13 @@ import 'firebase/auth';
 
   const db = firebase.firestore();
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-  const twitterAuthProvider = new firebase.auth.TwitterAuthProvider();
-  const githubAuthProvider = new firebase.auth.GithubAuthProvider();
+  // const twitterAuthProvider = new firebase.auth.TwitterAuthProvider();
+  // const githubAuthProvider = new firebase.auth.GithubAuthProvider();
   
   export {
       db,
       googleAuthProvider,
-      twitterAuthProvider,
-      githubAuthProvider,
+      // twitterAuthProvider,
+      // githubAuthProvider,
       firebase
   }

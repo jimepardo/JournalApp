@@ -1,12 +1,17 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {  startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
+// import { removeError, setError } from '../../actions/ui';
+// import validator from 'validator';
 
 
 export const LoginScreen = () => {
     const dispatch = useDispatch();
+
+    const { loading } = useSelector(state => state.ui);
+    
 
     const [formValues, handleInputChange] = useForm({
         email:'jime@gmail.com',
@@ -17,20 +22,47 @@ export const LoginScreen = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-       dispatch(startLoginEmailPassword(email, password));
+        
+        dispatch(startLoginEmailPassword(email, password));
+        
     }
 
     const handleGoogleLogin = () => {
         dispatch(startGoogleLogin());
     }
 
+    // const handleTwitterLogin = () => {
+    //     dispatch(startTwitterLogin());
+    // }
+
+    // const isFormValid = () => {
+       
+    //     if ( !validator.isEmail(email)) { 
+    //         dispatch(setError('El email es invalido'));
+    //         return false;
+    //     }else if ( password.length < 5){
+    //         dispatch(setError('La contraseña es muy corta'));
+    //         return false;
+    //     }
+    //     dispatch(removeError());
+    //     return true;
+    // }
+
     return (
-        <div className="auth__main">
-           <div className="auth__box-container">
+        <>
            <h3 className="auth__title">Login</h3>
 
             <form onSubmit={handleLogin}>
-            
+
+                {/* {
+                    msgError &&
+                    (
+                        <div className="auth__alert-error">
+                            {msgError}
+                        </div>
+                    )
+                } */}
+
                 <input
                     type="text"
                     placeholder="email"
@@ -53,6 +85,7 @@ export const LoginScreen = () => {
                 <button
                     type="submit"
                     className="btn btn-primary btn-block"
+                    disabled={loading}
                 >Login
                 </button>
 
@@ -78,9 +111,7 @@ export const LoginScreen = () => {
 
             </form> 
 
-            
-        </div> 
-        </div>
+            </>
         
     )
 }
