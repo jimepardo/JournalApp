@@ -102,7 +102,7 @@ export const startUploading = (file) => {
             text: 'Please wait...',
             allowOutsideClick: false,
             showConfirmButton: false,
-            onBeforeOpen: () => {
+            willOpen: () => {
                 Swal.showLoading();
                 
             }
