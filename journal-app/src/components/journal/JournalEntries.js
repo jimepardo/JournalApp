@@ -8,7 +8,7 @@ export const JournalEntries = () => {
 // console.log(entries);
 
     return (
-        <div className="journal__entries">
+        <div className="journal__entries ">
                {
                    notes.map(note => (
                        <JournalEntry 
