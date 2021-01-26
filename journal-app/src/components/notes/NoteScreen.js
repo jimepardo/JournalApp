@@ -35,7 +35,10 @@ export const NoteScreen = () => {
 
     return (
         <div className="notes__main-content">
-            <NotesAppBar />
+            <NotesAppBar 
+                 key={note.id}
+                 {... note }
+            />
 
             <div className="notes__content">
                 <input  

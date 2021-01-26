@@ -26,5 +26,5 @@ export const fileUpload = async (file) => {
         throw err;
     }
 
-    return 
+    
 }
